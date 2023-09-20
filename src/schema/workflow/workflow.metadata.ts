@@ -10,7 +10,7 @@ import {State} from '../../types'
 export default (states: State[]) =>
   defineType({
     type: 'document',
-    name: 'workflow.metadata',
+    name: 'custom-workflow.metadata',
     title: 'Workflow metadata',
     liveEdit: true,
     fields: [
@@ -50,7 +50,7 @@ export default (states: State[]) =>
             apiVersion: API_VERSION,
           }).fetch(`*[_type == $type]|order(@[$order] desc)[0][$order]`, {
             order: `orderRank`,
-            type: `workflow.metadata`,
+            type: `custom-workflow.metadata`,
           })
 
           return initialRank(lastDocOrderRank)

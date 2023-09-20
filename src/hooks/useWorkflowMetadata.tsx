@@ -19,7 +19,7 @@ export function useWorkflowMetadata(ids: string[]): {
     loading,
     error,
   } = useListeningQuery<Metadata[]>(
-    `*[_type == "workflow.metadata" && documentId in $ids]{
+    `*[_type == "custom-workflow.metadata" && documentId in $ids]{
       _id,
       _type,
       _rev,

@@ -22,13 +22,13 @@ export function BeginWorkflow(props: DocumentActionProps) {
   const handle = useCallback(async () => {
     setBeginning(true)
     const lowestOrderFirstState = await client.fetch(
-      `*[_type == "workflow.metadata" && state == $state]|order(orderRank)[0].orderRank`,
+      `*[_type == "custom-workflow.metadata" && state == $state]|order(orderRank)[0].orderRank`,
       {state: states[0].id}
     )
     client
       .createIfNotExists({
         _id: `workflow-metadata.${id}`,
-        _type: `workflow.metadata`,
+        _type: `custom-workflow.metadata`,
         documentId: id,
         state: states[0].id,
         orderRank: lowestOrderFirstState

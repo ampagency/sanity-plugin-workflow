@@ -8,7 +8,7 @@ import {useListeningQuery} from 'sanity-plugin-utils'
 import {API_VERSION} from '../constants'
 import {SanityDocumentWithMetadata, State} from '../types'
 
-const QUERY = groq`*[_type == "workflow.metadata"]|order(orderRank){
+const QUERY = groq`*[_type == "custom-workflow.metadata"]|order(orderRank){
   "_metadata": {
     _rev,
     assignees,
